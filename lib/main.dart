@@ -9,16 +9,20 @@ void main() {
 
 class MyApp extends StatelessWidget {
   MyApp({
-    super.key,
+    super.key
   });
+
   final appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
     return ProviderScope(
-        child: MaterialApp.router(
-      routerConfig: appRouter.config(),
-      theme: ThemeData(textTheme: const CustomTextTheme()),
-    ));
+      child: MaterialApp.router(
+        routerConfig: appRouter.config(),
+        theme: ThemeData(
+          textTheme: const CustomTextTheme(),
+        ),
+      ),
+    );
   }
 }

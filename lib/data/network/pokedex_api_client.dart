@@ -15,7 +15,7 @@ class PokedexApiClient {
     return pokemonData;
   }
 
-    Future<PokemonData> getPokemonDataByName(int id) async {
+  Future<PokemonData> getPokemonDataByName(int id) async {
     final pokemonData = await _apiService.getPokemonDetails(id);
     return pokemonData;
   }
