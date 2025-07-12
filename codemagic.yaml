@@ -12,6 +12,11 @@ workflows:
       branch_patterns:
         - pattern: "main"
           include: true
+    cache:
+      cache_paths:
+        - ~/.pub-cache
+        - ~/.gradle/caches
+        - ~/.gradle/wrapper
     scripts:
       - name: Install dependencies
         script: flutter pub get
