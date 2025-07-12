@@ -20,12 +20,12 @@ workflows:
         # 이제 .aab 파일을 빌드하고 빌드 번호를 자동으로 설정합니다.
         script: flutter build appbundle --release --build-number=$(($PROJECT_BUILD_NUMBER + 30))
 
+      - name: Install Firebase CLI # <-- 이 줄을 추가하거나 주석을 제거하세요!
+        script: npm install -g firebase-tools
+
       - name: Upload to Firebase App Distribution
         # .aab 파일 경로로 변경해야 합니다.
         script: |
-          # Firebase CLI가 없으면 설치합니다 (보통 CodeMagic에 설치되어 있지만 확실하게)
-          # npm install -g firebase-tools
-
           firebase appdistribution:distribute build/app/outputs/bundle/release/app-release.aab \
             --app $FIREBASE_APP_ID \
             --token $FIREBASE_AUTH_TOKEN \
